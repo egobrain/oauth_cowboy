@@ -13,8 +13,8 @@ parse_transform(Ast,_Options)->
     {ExtendedAst2, #state{fns=Fns,rds=Rds}} = lists:mapfoldl(fun transform_node/2, #state{}, Ast),
     Ast2 = lists:flatten(lists:filter(fun(Node)-> Node =/= nil end, ExtendedAst2)),
     Ast3 = add_export(Ast2,[{to_proplist,1}]),
-    io:format("~p~n<<<<~n",[Ast3]),
-    io:format("~s~n>>>>~n",[pretty_print(Ast3)]),
+    %io:format("~p~n<<<<~n",[Ast3]),
+    %io:format("~s~n>>>>~n",[pretty_print(Ast3)]),
 
     % io:format("~n~n~n~n~p~n>>>>~n",[Rds]),
     % io:format("~n~n~n~n~p~n",[State#state.rds]),
