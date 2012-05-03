@@ -1,0 +1,10 @@
+{application,oauth_cowboy,
+             [{description,[]},
+              {vsn,"1"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{oauth_cowboy_app,[]}},
+              {env,[]},
+              {modules,[mochijson2_fork,mochinum_fork,oauth,oauth_cowboy_app,
+                        oauth_cowboy_handler,oauth_cowboy_sup,oauth_rd,
+                        oauth_to_functions]}]}.
