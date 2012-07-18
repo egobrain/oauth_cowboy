@@ -14,6 +14,12 @@
 
 -export([init/3,handle/2,terminate/2]).
 
+-callback show_error_page(#auth_error{},Req) -> {ok, Req}.
+-callback show_login_page(URI :: binary(),Scope :: binary(), Req) -> {ok, Req}.
+-callback valid_login(Req) -> {valid, Grant :: binary(), Scope :: binary(), Req}
+				  | {invalid, Req}
+				  | {noreply, Req}.
+
 init({_,http},Req,Module) ->
     {Path,_} = cowboy_http_req:binding(path,Req),
     {Method,_} = cowboy_http_req:method(Req),
