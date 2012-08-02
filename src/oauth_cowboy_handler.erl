@@ -16,7 +16,7 @@
 
 -callback show_error_page(#auth_error{},Req) -> {ok, Req}.
 -callback show_login_page(URI :: binary(), _Scope, Req) -> {ok, Req}.
--callback valid_login(Req) -> {valid, Grant :: binary(), _Scope, Req}
+-callback valid_login(Req) -> {valid, _Grant , _Scope, Req}
 				  | {invalid, Req}
 				  | {noreply, Req}.
 
