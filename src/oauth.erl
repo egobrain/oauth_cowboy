@@ -354,7 +354,7 @@ format_json(Record) ->
 			       (_) ->true
 			    end,
 			    Proplist),
-    mochijson2_fork:encode({struct,Filtered}).
+    mochijson3_fork:encode({struct,Filtered}).
     
 
 

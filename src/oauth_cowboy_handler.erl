@@ -15,8 +15,8 @@
 -export([init/3,handle/2,terminate/2]).
 
 -callback show_error_page(#auth_error{},Req) -> {ok, Req}.
--callback show_login_page(URI :: binary(),Scope :: binary(), Req) -> {ok, Req}.
--callback valid_login(Req) -> {valid, Grant :: binary(), Scope :: binary(), Req}
+-callback show_login_page(URI :: binary(), _Scope, Req) -> {ok, Req}.
+-callback valid_login(Req) -> {valid, Grant :: binary(), _Scope, Req}
 				  | {invalid, Req}
 				  | {noreply, Req}.
 
@@ -28,7 +28,7 @@ init({_,http},Req,Module) ->
 handle(Req,#state{path= <<"add_site">>,method='GET'} = State) ->
     #oauth_client{client_id=ClientID,
 		  client_secret=ClientSecret} = oauth:new_client(),
-    Json = mochijson2_fork:encode({struct,[{<<"client_id">>,ClientID},
+    Json = mochijson3_fork:encode({struct,[{<<"client_id">>,ClientID},
 					   {<<"client_secret">>,ClientSecret}]}),
     {ok,Req2} = cowboy_http_req:reply(200,[],[Json],Req),
     {ok,Req2,State};

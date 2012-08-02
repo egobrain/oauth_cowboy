@@ -5,6 +5,6 @@
               {applications,[kernel,stdlib]},
               {mod,{oauth_cowboy_app,[]}},
               {env,[]},
-              {modules,[mochijson2_fork,mochinum_fork,oauth,oauth_cowboy_app,
+              {modules,[mochijson3_fork,mochinum3_fork,oauth,oauth_cowboy_app,
                         oauth_cowboy_handler,oauth_cowboy_sup,oauth_rd,
                         oauth_to_functions]}]}.
